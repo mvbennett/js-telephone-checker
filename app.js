@@ -14,37 +14,21 @@ const checkPara = (str) => {
 }
 
 const checkHyphens = (str) => {
-    let hyphens = str.match(/\-/g)
-    return hyphens === null || hyphens.length <= 2
-  }
+  let hyphens = str.match(/\-/g)
+  return hyphens === null || hyphens.length <= 2
+}
 
 const telephoneCheck = (str) => {
 
-  let newStr = "";
+  const numbers = str.split('').filter(char => char.match(/[0-9]/g));
 
-  for(let i = 0; i < str.length; i++) {
-    if(str[i].match(/[0-9]/g)){
-      newStr += str[i];
-    }
-  }
-
-  if(newStr.length === 10) {
-    return (
-      checkFirst(str) &&
-      checkPara(str) &&
-      checkHyphens(str)
-    )
-  } else if(newStr.length === 11) {
-    if(newStr[0] == "1") {
-      return (
-          checkFirst(str) &&
-          checkPara(str) &&
-          checkHyphens(str)
-      )
-    } else {
-      return false;
-    }
-  }
+  return (numbers.length === 10 ||
+  (numbers.length === 11 && numbers[0] == "1")) &&
+  (
+    checkFirst(str) &&
+    checkPara(str) &&
+    checkHyphens(str)
+  )
 }
 
 const tests = [
