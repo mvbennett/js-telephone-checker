@@ -3,9 +3,9 @@ const checkFirst = (str) => {
 }
 
 const checkPara = (str) => {
-  let para = str.match(/[()]/g);
-  let firstPara = str.match(/[(]/);
-  let secondPara = str.match(/[)]/);
+  const para = str.match(/[()]/g);
+  const firstPara = str.match(/[(]/);
+  const secondPara = str.match(/[)]/);
   if(firstPara == null && secondPara == null) {
     return true;
   } else {
@@ -14,7 +14,7 @@ const checkPara = (str) => {
 }
 
 const checkHyphens = (str) => {
-  let hyphens = str.match(/\-/g)
+  const hyphens = str.match(/\-/g)
   return hyphens === null || hyphens.length <= 2
 }
 
@@ -31,13 +31,13 @@ const telephoneCheck = (str) => {
   )
 }
 
-const tests = [
-  "555-555-5555",
-  "(555)555-5555",
-  "(555) 555-5555",
-  "555 555 5555",
-  "5555555555",
-  "1 555 555 5555",
-]
+// const tests = [
+//   "555-555-5555",
+//   "(555)555-5555",
+//   "(555) 555-5555",
+//   "555 555 5555",
+//   "5555555555",
+//   "1 555 555 5555",
+// ]
 
-tests.forEach(test => console.log(telephoneCheck(test)))
+// tests.forEach(test => console.log(telephoneCheck(test)))
