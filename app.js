@@ -8,25 +8,14 @@ const checkPara = (str) => {
   let secondPara = str.match(/[)]/);
   if(para == null) {
     return true;
+  } else {
+    return (para.length === 2) && (secondPara["index"]-firstPara["index"] === 4);
   }
-  else if(para.length !== 2){
-    return false;
-  } else if(secondPara["index"]-firstPara["index"] !== 4){
-    return false;
-  } else if(para = null){
-    return true;
-  }
-  return true;
 }
 
 const checkHyphens = (str) => {
     let hyphens = str.match(/\-/g)
-    if(hyphens == null){
-      return true;
-    } else if(hyphens.length > 2) {
-      return false;
-    }
-    return true;
+    return hyphens === null || hyphens.length <= 2
   }
 
 const telephoneCheck = (str) => {
