@@ -6,7 +6,7 @@ const checkPara = (str) => {
   let para = str.match(/[()]/g);
   let firstPara = str.match(/[(]/);
   let secondPara = str.match(/[)]/);
-  if(para == null) {
+  if(firstPara == null && secondPara == null) {
     return true;
   } else {
     return (para.length === 2) && (secondPara["index"]-firstPara["index"] === 4);
@@ -33,25 +33,19 @@ const telephoneCheck = (str) => {
   }
 
 
-  if(newStr.length == 10) {
-    if(
-    checkFirst(str) &&
-    checkPara(str) &&
-    checkHyphens(str)) {
-      return true
-    }
-    return false;
-  }
-  else if(newStr.length === 11){
+  if(newStr.length === 10) {
+    return (
+      checkFirst(str) &&
+      checkPara(str) &&
+      checkHyphens(str)
+    )
+  } else if(newStr.length === 11) {
     if(newStr[0] == "1") {
-      if(
-        checkFirst(str) &&
-        checkPara(str) &&
-        checkHyphens(str)
-        ) {
-          return true
-      }
-      return false;
+      return (
+          checkFirst(str) &&
+          checkPara(str) &&
+          checkHyphens(str)
+      )
     } else {
       return false;
     }
