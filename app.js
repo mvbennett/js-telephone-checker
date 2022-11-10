@@ -28,11 +28,6 @@ const telephoneCheck = (str) => {
     }
   }
 
-  if(newStr.length > 11 || newStr.length < 10){
-    return false;
-  }
-
-
   if(newStr.length === 10) {
     return (
       checkFirst(str) &&
